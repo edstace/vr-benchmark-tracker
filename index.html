@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR Service Benchmark Tracker</title>
+  
+  <!-- Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- React and ReactDOM (Development versions for better error messages) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- No longer using Lucide Icons -->
+</head>
+<body>
+  <div id="root">
+    <div style="padding: 20px; text-align: center;">
+      Loading application...
+      <p>If this message doesn't disappear, check the console for errors.</p>
+    </div>
+  </div>
+  
+  <!-- Debug and error handling -->
+  <script>
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.error("Global error:", message, source, lineno, colno, error);
+      document.getElementById('root').innerHTML += 
+        `<div style="color:red;padding:20px;margin-top:20px;border:1px solid red;">
+          Error: ${message}<br>
+          Source: ${source}<br>
+          Line: ${lineno}, Column: ${colno}
+        </div>`;
+      return true;
+    };
+  </script>
+  
+  <script type="text/babel" src="benchmark-tracker.jsx"></script>
+</body>
+</html>
